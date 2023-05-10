@@ -1,4 +1,4 @@
-# Project: Mesto-React
+# Project: Mesto-React with authorization
 
 ![Project screenshot](https://raw.githubusercontent.com/Tatty13/imgs-for-README/main/mesto.jpg)
 
@@ -27,19 +27,28 @@ Flexbox and grid layouts are used to align elements. Adaptive layout is implemen
 
 ## **Stack**
 
-* HTML5
-* CSS3
-  * Grid layout
-  * Flexbox layout
-* JavaScript (ES6)
-* Git
-* Webpack (5)
-* React.js
+<div>
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40"/>
+
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/css3/css3-plain-wordmark.svg" title="CSS3" alt="CSS" width="40" height="40"/>
+
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>
+
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40"/>
+
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/git/git-original.svg" title="Git" alt="Git" width="40" height="40"/>
+
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/figma/figma-original.svg" title="Figma" alt="Figma" width="40" height="40"/>
+
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="40" height="40"/>
+
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/webpack/webpack-original.svg" title="Webpack" alt="Webpack" width="40" height="40"/>
+</div>
 
 ---
 ---
 
-[Deploy](https://tatty13.github.io/mesto-react/)
+[Deploy](https://tatty13.github.io/react-mesto-auth/)
 
 ---
 
@@ -71,14 +80,3 @@ Flexbox and grid layouts are used to align elements. Adaptive layout is implemen
 *При нажатии на картинку открывается попап с тем же изображением в большем формате с оригинальными пропорциями. Название места отображается полностью. Закрытие попапа осуществляется при клике на крестик/оверлей/Escape.*
 6. Валидация форм  
 *Формы в попапе профиля и попапе добавления карточки с форографией валидируются.*
-
-## **Используемые технологии**
-
-* HTML5
-* CSS3
-  * Grid layout
-  * Flexbox layout
-* JavaScript (ES6)
-* Git
-* Webpack (5)
-* React.js

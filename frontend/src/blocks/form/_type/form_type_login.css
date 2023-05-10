@@ -1,0 +1,10 @@
+.form_type_login {
+  min-height: 360px;
+}
+
+@media screen and (max-width: 698px) {
+  .form_type_login {
+    width: 260px;
+    min-height: 300px;
+  }
+}

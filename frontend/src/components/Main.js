@@ -26,7 +26,7 @@ function Main({
   ))
 
   return (
-    <main className="content">
+    <>
       <section className="profile">
         <div className="profile__avatar-wrap" onClick={onEditAvatar}>
           <img
@@ -55,7 +55,7 @@ function Main({
           {cardElements}
         </ul>
       </section>
-    </main>
+    </>
   );
 }
 

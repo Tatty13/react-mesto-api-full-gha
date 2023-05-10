@@ -1,0 +1,11 @@
+.form__input_theme_light {
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.form__input_theme_light::placeholder {
+  color: #c4c4c4;
+}
+
+.form__input_theme_light:focus {
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, .2);
+}

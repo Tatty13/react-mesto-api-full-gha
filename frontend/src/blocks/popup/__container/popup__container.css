@@ -4,6 +4,7 @@
   background: #fff;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
+  transition: .3s;
 }
 
 @media screen and (max-width: 698px) {

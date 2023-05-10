@@ -5,14 +5,23 @@ const apiOptions = {
     "Content-Type": "application/json; charset=UTF-8",
   },
   errorMessages: {
-    getUserData: "Не удалось загрузить данные пользователя. Ошибка:",
-    setUserData: "Не удалось обновить данные пользователя. Ошибка:",
-    getInitialCards: "Не удалось загрузить карточки. Ошибка:",
-    addCard: "Не удалось создать карточку. Ошибка:",
-    deleteCard: "Не удалось удалить карточку. Ошибка:",
-    toogleCardLike: "Невозможно выполнить действие. Ошибка:",
-    updateAvatar: "Не удалось обновить аватар. Ошибка:",
+    getUserData: "Не удалось загрузить данные пользователя",
+    setUserData: "Не удалось обновить данные пользователя",
+    getInitialCards: "Не удалось загрузить карточки",
+    addCard: "Не удалось создать карточку",
+    deleteCard: "Не удалось удалить карточку",
+    toogleCardLike: "Невозможно выполнить действие",
+    updateAvatar: "Не удалось обновить аватар",
   },
 };
 
-export default apiOptions;
+const authApiOptions = {
+  baseURL: "https://auth.nomoreparties.co",
+  errorMessages: {
+    authUser: "Не удалось зарегистрировать пользователя",
+    login: "Не удалось авторизовать пользователя",
+    validateToken: "Данные не прошли проверку",
+  },
+};
+
+export { apiOptions, authApiOptions };

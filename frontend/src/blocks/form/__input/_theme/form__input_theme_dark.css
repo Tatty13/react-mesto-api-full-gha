@@ -1,0 +1,12 @@
+.form__input_theme_dark {
+  color: #fff;
+  border-bottom: 2px solid #ccc;
+}
+
+.form__input_theme_dark::placeholder {
+  color: #ccc;
+}
+
+.form__input_theme_dark:focus {
+  box-shadow: 2px -1px 6px 1px rgb(206 204 204 / 20%);
+}

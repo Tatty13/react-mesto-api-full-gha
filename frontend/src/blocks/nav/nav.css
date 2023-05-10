@@ -1,0 +1,12 @@
+@media screen and (max-width: 468px) {
+  .nav {
+    position: absolute;
+    overflow: hidden;
+    top: -144px;
+    left: 0;
+    width: 100%;
+    min-height: 142px;
+    border-bottom: 1px solid rgba(84, 84, 84, .7);
+    transition: .3s;
+  }
+}

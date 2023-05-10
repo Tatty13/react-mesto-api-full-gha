@@ -1,0 +1,43 @@
+.burger-btn {
+  position: relative;
+  margin-top: 4px;
+  padding: 0;
+  width: 24px;
+  height: 21px;
+  display: none;
+  align-items: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.burger-btn::before,
+.burger-btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  transition: .3s;
+}
+
+.burger-btn::before {
+  top: 0;
+}
+
+.burger-btn::after {
+  bottom: 0;
+}
+
+.burger-btn:hover::before,
+.burger-btn:hover::after {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (max-width: 468px) {
+  .burger-btn {
+    display: flex;
+  }
+}

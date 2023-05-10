@@ -1,4 +1,5 @@
 import Popup from "./Popup";
+import Form from "./Form";
 
 function PopupWithForm({
   isOpen,
@@ -11,6 +12,7 @@ function PopupWithForm({
   children,
   onClose,
   onSubmit,
+  theme,
 }) {
   return (
     <Popup
@@ -19,26 +21,16 @@ function PopupWithForm({
       onClose={onClose}
       containerClass="popup__container">
       <h2 className="popup__title">{title}</h2>
-      <form
-        className={`form form_type_${name}`}
-        action="#"
+      <Form
         name={name}
-        id={name}
         onSubmit={onSubmit}
-        noValidate>
+        isFormValid={isFormValid}
+        isLoading={isLoading}
+        loadingText={loadingText}
+        submitBtnText={submitBtnText}
+        theme={theme}>
         {children}
-        <button
-          className={`form__submit-btn ${
-            !isFormValid && "form__submit-btn_disabled"
-          }`}
-          type="submit"
-          name="submit-btn"
-          disabled={!isFormValid}>
-          {isLoading
-            ? loadingText || "Сохранение..."
-            : submitBtnText || "Сохранить"}
-        </button>
-      </form>
+      </Form>
     </Popup>
   );
 }

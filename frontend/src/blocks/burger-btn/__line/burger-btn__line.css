@@ -1,0 +1,14 @@
+.burger-btn__line {
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  transition: .3s;
+}
+
+.burger-btn:hover .burger-btn__line {
+  opacity: .6;
+}
+
+.burger-btn_open .burger-btn__line {
+  display: none;
+}

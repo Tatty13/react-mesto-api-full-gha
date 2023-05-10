@@ -1,0 +1,15 @@
+.section__title {
+  margin: 20px 0 40px 0;
+  font-size: 24px;
+  line-height: 1.21;
+  font-weight: 900;
+  transition: .3s;
+}
+
+@media screen and (max-width: 698px) {
+  .section__title {
+    margin-top: 0;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}

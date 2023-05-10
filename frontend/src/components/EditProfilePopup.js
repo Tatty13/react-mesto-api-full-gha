@@ -7,13 +7,22 @@ import CurrentUserContext from "../contexts/CurrentUserContext";
 function EditProfilePopup({ isOpen, isLoading, onClose, onUpdateUser }) {
   const currentUser = useContext(CurrentUserContext);
 
-  const [userData, setUserData, handleInputChange] = useInput({
+  const {
+    values: userData,
+    setValues: setUserData,
+    handleInputChange,
+  } = useInput({
     name: currentUser.name,
     about: currentUser.about,
   });
 
-  const { errorMessages, isFormValid, handleValidityChange, resetValidation } =
-    useValidation(1);
+  const {
+    errorMessages,
+    isFormValid,
+    isInputsValid,
+    handleValidityChange,
+    resetValidation,
+  } = useValidation();
 
   const handleChange = e => {
     handleInputChange(e);
@@ -40,10 +49,13 @@ function EditProfilePopup({ isOpen, isLoading, onClose, onUpdateUser }) {
       onClose={onClose}
       onSubmit={handleSubmit}
       title="Редактировать профиль"
-      name="edit-profile">
+      name="edit-profile"
+      theme="light">
       <label>
         <input
-          className="form__input"
+          className={`form__input form__input_theme_light ${
+            isInputsValid.name === false && "form__input_invalid"
+          }`}
           type="text"
           name="name"
           placeholder="Введите имя"
@@ -53,16 +65,13 @@ function EditProfilePopup({ isOpen, isLoading, onClose, onUpdateUser }) {
           onChange={handleChange}
           required
         />
-        <span
-          className={`form__input-error name-input-error ${
-            errorMessages.name ? "form__input-error_active" : ""
-          }`}>
-          {errorMessages.name}
-        </span>
+        <span className="form__input-error">{errorMessages.name}</span>
       </label>
       <label>
         <input
-          className="form__input"
+          className={`form__input form__input_theme_light ${
+            isInputsValid.about === false && "form__input_invalid"
+          }`}
           type="text"
           name="about"
           minLength="2"
@@ -72,12 +81,7 @@ function EditProfilePopup({ isOpen, isLoading, onClose, onUpdateUser }) {
           onChange={handleChange}
           required
         />
-        <span
-          className={`form__input-error name-input-error ${
-            errorMessages.about ? "form__input-error_active" : ""
-          }`}>
-          {errorMessages.about}
-        </span>
+        <span className="form__input-error">{errorMessages.about}</span>
       </label>
     </PopupWithForm>
   );

@@ -1,0 +1,8 @@
+.form__submit-btn_theme_light {
+  color: #fff;
+  background: #000;
+}
+
+.form__submit-btn_theme_light:hover {
+  background: rgba(0, 0, 0, .8);
+}

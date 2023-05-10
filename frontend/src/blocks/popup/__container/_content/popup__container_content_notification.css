@@ -1,9 +1,17 @@
 .popup__container_content_notification {
-  max-width: 360px;
+  box-sizing: border-box;
+  padding-top: 212px;
+  padding-bottom: 20px;
+  min-height: 330px;
+  max-width: 430px;
+  background: no-repeat center top 60px / 120px 120px #fff;
+  text-align: center;
 }
 
 @media screen and (max-width: 698px) {
   .popup__container_content_notification  {
-    max-width: 240px;
+    min-height: 308px;
+    max-width: 280px;
+    background-position-y: 50px;
   }
 }

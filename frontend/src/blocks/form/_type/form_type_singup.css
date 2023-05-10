@@ -1,0 +1,10 @@
+.form_type_singup {
+  min-height: 360px;
+}
+
+@media screen and (max-width: 698px) {
+  .form_type_singup {
+    width: 260px;
+    min-height: 300px;
+  }
+}

@@ -19,6 +19,7 @@ function DeleteCardPopup({
       isFormValid={true}
       onClose={onClose}
       onSubmit={handleSubmit}
+      theme="light"
       title="Вы уверены?"
       name="confirmation"
       submitBtnText="Да"

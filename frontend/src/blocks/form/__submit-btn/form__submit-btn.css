@@ -7,17 +7,11 @@
   font-size: 18px;
   line-height: 1.22;
   font-weight: 400;
-  color: #fff;
-  background: #000;
   border: none;
   border-radius: 2px;
   outline: none;
   cursor: pointer;
   transition: .3 ease-in-out;
-}
-
-.form__submit-btn:hover {
-  background: rgba(0, 0, 0, .8);
 }
 
 @media screen and (max-width: 698px) {

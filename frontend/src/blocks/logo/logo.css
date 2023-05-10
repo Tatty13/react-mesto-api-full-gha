@@ -10,12 +10,6 @@
   opacity: .6;
 }
 
-@media screen and (max-width: 968px) {
-  .logo {
-    margin-left: 27px;
-  }
-}
-
 @media screen and (max-width: 468px) {
   .logo {
     width: 103.74px;

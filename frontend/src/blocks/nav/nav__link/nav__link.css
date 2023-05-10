@@ -1,0 +1,10 @@
+.nav__link {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.nav__link:hover {
+  opacity: .6;
+}

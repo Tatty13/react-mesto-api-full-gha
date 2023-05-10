@@ -1,0 +1,12 @@
+.page-not-found__btn {
+  padding: 10px;
+  color: #a9a9a9;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.page-not-found__btn:hover {
+  opacity: .6;
+}

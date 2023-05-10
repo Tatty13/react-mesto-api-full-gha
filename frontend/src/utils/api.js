@@ -1,4 +1,4 @@
-import apiOptions from "./apiOptions";
+import { apiOptions, authApiOptions } from "./apiOptions";
 
 class Api {
   /**
@@ -20,7 +20,15 @@ class Api {
   _getResponseData(res, errorPlace) {
     return res.ok
       ? res.json()
-      : Promise.reject(`${this._errorMessages[errorPlace]} ${res.status}`);
+      : res
+          .json()
+          .then(error =>
+            Promise.reject(
+              `${this._errorMessages[errorPlace]}. Ошибка: ${res.status} ${
+                error.error || error.message || ""
+              }`
+            )
+          );
   }
 
   /**
@@ -140,8 +148,68 @@ class Api {
       "updateAvatar"
     );
   }
+
+  /**
+   * @param {object} authData
+   * @param {string} authData.email
+   * @param {string} authData.password
+   * @returns
+   */
+  singup(authData) {
+    return this._request(
+      "/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(authData),
+      },
+      "authUser"
+    );
+  }
+
+  /**
+   * @param {object} loginData
+   * @param {string} loginData.email
+   * @param {string} loginData.password
+   * @returns
+   */
+  login(loginData) {
+    return this._request(
+      "/signin",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(loginData),
+      },
+      "login"
+    );
+  }
+
+  /**
+   * @param {string} token 
+   * @returns 
+   */
+  validateToken(token) {
+    return this._request(
+      "/users/me",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+      },
+      "validateToken"
+    );
+  }
 }
 
 const api = new Api(apiOptions);
 
-export default api;
+const authApi = new Api(authApiOptions);
+
+export { api, authApi };

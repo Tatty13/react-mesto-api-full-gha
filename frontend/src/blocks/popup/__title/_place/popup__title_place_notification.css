@@ -1,0 +1,7 @@
+@media screen and (max-width: 698px) {
+  .popup__title_place_notification {
+    margin-bottom: 30px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+}

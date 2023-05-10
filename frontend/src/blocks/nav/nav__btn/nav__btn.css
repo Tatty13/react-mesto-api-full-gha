@@ -1,0 +1,13 @@
+.nav__btn {
+  padding: 0;
+  color: #a9a9a9;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.nav__btn:hover {
+  opacity: .6;
+}

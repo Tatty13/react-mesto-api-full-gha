@@ -1,0 +1,16 @@
+.nav__list {
+  margin: 0;
+  padding: 6px 0 0 0;
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  font-size: 18px;
+  line-height: 1.22;
+  transition: margin .3s;
+}
+
+@media screen and (max-width: 468px) {
+  .nav__list {
+    font-size: 14px;
+  }
+}

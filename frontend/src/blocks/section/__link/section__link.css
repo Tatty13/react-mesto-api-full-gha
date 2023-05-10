@@ -1,0 +1,10 @@
+.section__link {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.section__link:hover {
+  opacity: 0.6;
+}
