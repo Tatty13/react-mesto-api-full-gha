@@ -1,0 +1,5 @@
+.card__img-wrap {
+  grid-column: span 2;
+  font-size: 0;
+  background: #c4c4c4;
+}

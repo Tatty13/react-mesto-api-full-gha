@@ -1,0 +1,13 @@
+.card {
+  position: relative;
+  width: 282px;
+  min-height: 361px;
+  display: grid;
+  grid-template-columns: 1fr 42px;
+  grid-template-rows: 282px max-content;
+  align-items: center;
+  gap: 23px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}

@@ -1,0 +1,22 @@
+.profile__info {
+  display: grid;
+  grid-template-areas: 
+    'name edit-btn'
+    'about about';
+  align-items: baseline;
+  gap: 8px 18px;
+  max-width: 55%;
+}
+
+@media screen and (max-width: 758px) {
+  .profile__info {
+    max-width: 100%;
+    margin-bottom: 34px;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .profile__info {
+    gap: 6px 10px;
+  }
+}

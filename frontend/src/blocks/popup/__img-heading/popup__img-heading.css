@@ -1,0 +1,10 @@
+.popup__img-heading {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.25;
+  font-weight: 400;
+  color: #fff;
+}

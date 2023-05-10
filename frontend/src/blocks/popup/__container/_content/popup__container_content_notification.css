@@ -1,0 +1,9 @@
+.popup__container_content_notification {
+  max-width: 360px;
+}
+
+@media screen and (max-width: 698px) {
+  .popup__container_content_notification  {
+    max-width: 240px;
+  }
+}
