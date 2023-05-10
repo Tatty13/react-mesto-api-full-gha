@@ -8,13 +8,13 @@
   },
   "description": "The study project that was made as part of the 'Web Developer' course from Yandex.Praktikum. This is a website where users can share photos",
   "private": true,
-  "homepage": "https://Tatty13.github.io/mesto-react",
+  "homepage": "https://Tatty13.github.io/react-mesto-api-full",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tatty13/mesto-react.git"
+    "url": "https://github.com/Tatty13/react-mesto-api-full.git"
   },
   "bugs": {
-    "url": "https://github.com/Tatty13/mesto-react/issues"
+    "url": "https://github.com/Tatty13/react-mesto-api-full/issues"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
