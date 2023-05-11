@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес: 158.160.4.66
+IP-адрес 158.160.4.66
 
-Frontend: <https://mesto.russia.nomoredomains.monster>
+Frontend <https://mesto.russia.nomoredomains.monster>
 
-Backend: <https://api.mesto.russia.nomoredomains.monster>
+Backend <https://api.mesto.russia.nomoredomains.monster>
