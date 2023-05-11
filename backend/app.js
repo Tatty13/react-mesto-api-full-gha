@@ -10,6 +10,7 @@ const router = require('./routes');
 const { PORT, BD_URL, limiter } = require('./utils/config');
 const handleError = require('./middlewares/handleError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const handleCors = require('./middlewares/cors');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(requestLogger);
+app.use(handleCors);
 app.use(router);
 app.use(errorLogger);
 
