@@ -15,7 +15,7 @@ import ImagePopup from './ImagePopup';
 import InfoTooltip from './InfoTooltip';
 import Loader from './Loader';
 import PageNotFound from './PageNotFound';
-import { api, authApi } from '../utils/api';
+import { api } from '../utils/api';
 
 function App() {
   const [isEditAvatarPopupOpen, setEditAvatarPopupState] = useState(false);
@@ -82,7 +82,7 @@ function App() {
   function handleLogin(loginData) {
     setLoading(true);
 
-    authApi
+    api
       .login(loginData)
       .then(() => {
         localStorage.setItem('loggedIn', 'true');
@@ -105,7 +105,7 @@ function App() {
   function handlseSignup(singupData) {
     setLoading(true);
 
-    authApi
+    api
       .singup(singupData)
       .then((_) => {
         setIsSuccess(true);
@@ -241,7 +241,7 @@ function App() {
 
   const handleTokenCheck = useCallback(() => {
     if (localStorage.getItem('loggedIn')) {
-      authApi
+      api
         .validateToken()
         .then((user) => {
           setUserEmail(user.email);

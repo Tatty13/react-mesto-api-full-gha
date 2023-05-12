@@ -1,4 +1,4 @@
-import { apiOptions, authApiOptions } from './apiOptions';
+import { apiOptions } from './apiOptions';
 
 class Api {
   /**
@@ -165,9 +165,7 @@ class Api {
       '/signup',
       {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
+        headers: this._headers,
         body: JSON.stringify(authData),
       },
       'authUser'
@@ -185,9 +183,7 @@ class Api {
       '/signin',
       {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
+        headers: this._headers,
         body: JSON.stringify(loginData),
         credentials: 'include',
       },
@@ -200,27 +196,19 @@ class Api {
       '/signout',
       {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
+        headers: this._headers,
         credentials: 'include',
       },
       'logout'
     );
   }
 
-  /**
-   * @param {string} token
-   * @returns
-   */
   validateToken() {
     return this._request(
       '/users/me',
       {
         method: 'GET',
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
+        headers: this._headers,
         credentials: 'include',
       },
       'validateToken'
@@ -230,6 +218,4 @@ class Api {
 
 const api = new Api(apiOptions);
 
-const authApi = new Api(authApiOptions);
-
-export { api, authApi };
+export { api };

@@ -11,16 +11,11 @@ const apiOptions = {
     deleteCard: 'Не удалось удалить карточку',
     toogleCardLike: 'Невозможно выполнить действие',
     updateAvatar: 'Не удалось обновить аватар',
-  },
-};
-
-const authApiOptions = {
-  baseURL: 'https://api.mesto.russia.nomoredomains.monster',
-  errorMessages: {
+    logout: 'Ошибка выхода из аккаунта',
     authUser: 'Не удалось зарегистрировать пользователя',
     login: 'Не удалось авторизовать пользователя',
     validateToken: 'Данные не прошли проверку',
   },
 };
 
-export { apiOptions, authApiOptions };
+export { apiOptions };
