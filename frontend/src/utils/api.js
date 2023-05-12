@@ -1,4 +1,4 @@
-import { apiOptions, authApiOptions } from "./apiOptions";
+import { apiOptions, authApiOptions } from './apiOptions';
 
 class Api {
   /**
@@ -22,10 +22,10 @@ class Api {
       ? res.json()
       : res
           .json()
-          .then(error =>
+          .then((error) =>
             Promise.reject(
               `${this._errorMessages[errorPlace]}. Ошибка: ${res.status} ${
-                error.error || error.message || ""
+                error.error || error.message || ''
               }`
             )
           );
@@ -38,7 +38,7 @@ class Api {
    * @returns {Promise}
    */
   _request(endPoint, options, errorPlace) {
-    return fetch(`${this._baseURL}${endPoint}`, options).then(res =>
+    return fetch(`${this._baseURL}${endPoint}`, options).then((res) =>
       this._getResponseData(res, errorPlace)
     );
   }
@@ -48,9 +48,9 @@ class Api {
    */
   getUserData() {
     return this._request(
-      "/users/me",
-      { headers: this._headers },
-      "getUserData"
+      '/users/me',
+      { headers: this._headers, credentials: 'include' },
+      'getUserData'
     );
   }
 
@@ -62,13 +62,14 @@ class Api {
    */
   setUserData(userData) {
     return this._request(
-      "/users/me",
+      '/users/me',
       {
-        method: "PATCH",
+        method: 'PATCH',
         headers: this._headers,
         body: JSON.stringify(userData),
+        credentials: 'include',
       },
-      "setUserData"
+      'setUserData'
     );
   }
 
@@ -77,9 +78,9 @@ class Api {
    */
   getInitialCards() {
     return this._request(
-      "/cards",
-      { headers: this._headers },
-      "getInitialCards"
+      '/cards',
+      { headers: this._headers, credentials: 'include' },
+      'getInitialCards'
     );
   }
 
@@ -91,13 +92,14 @@ class Api {
    */
   addCard(cardData) {
     return this._request(
-      "/cards",
+      '/cards',
       {
-        method: "POST",
+        method: 'POST',
         headers: this._headers,
         body: JSON.stringify(cardData),
+        credentials: 'include',
       },
-      "addCard"
+      'addCard'
     );
   }
 
@@ -109,10 +111,11 @@ class Api {
     return this._request(
       `/cards/${cardId}`,
       {
-        method: "DELETE",
+        method: 'DELETE',
         headers: this._headers,
+        credentials: 'include',
       },
-      "deleteCard"
+      'deleteCard'
     );
   }
 
@@ -125,10 +128,11 @@ class Api {
     return this._request(
       `/cards/${cardId}/likes`,
       {
-        method: isLiked ? "DELETE" : "PUT",
+        method: isLiked ? 'DELETE' : 'PUT',
         headers: this._headers,
+        credentials: 'include',
       },
-      "toogleCardLike"
+      'toogleCardLike'
     );
   }
 
@@ -139,13 +143,14 @@ class Api {
    */
   updateAvatar(avatarData) {
     return this._request(
-      "/users/me/avatar",
+      '/users/me/avatar',
       {
-        method: "PATCH",
+        method: 'PATCH',
         headers: this._headers,
         body: JSON.stringify(avatarData),
+        credentials: 'include',
       },
-      "updateAvatar"
+      'updateAvatar'
     );
   }
 
@@ -157,15 +162,15 @@ class Api {
    */
   singup(authData) {
     return this._request(
-      "/signup",
+      '/signup',
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json; charset=UTF-8",
+          'Content-Type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify(authData),
       },
-      "authUser"
+      'authUser'
     );
   }
 
@@ -177,33 +182,34 @@ class Api {
    */
   login(loginData) {
     return this._request(
-      "/signin",
+      '/signin',
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json; charset=UTF-8",
+          'Content-Type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify(loginData),
+        credentials: 'include',
       },
-      "login"
+      'login'
     );
   }
 
   /**
-   * @param {string} token 
-   * @returns 
+   * @param {string} token
+   * @returns
    */
-  validateToken(token) {
+  validateToken() {
     return this._request(
-      "/users/me",
+      '/users/me',
       {
-        method: "GET",
+        method: 'GET',
         headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json; charset=UTF-8",
+          'Content-Type': 'application/json; charset=UTF-8',
         },
+        credentials: 'include',
       },
-      "validateToken"
+      'validateToken'
     );
   }
 }
