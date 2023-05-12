@@ -195,6 +195,20 @@ class Api {
     );
   }
 
+  logout() {
+    return this._request(
+      '/signout',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        credentials: 'include',
+      },
+      'logout'
+    );
+  }
+
   /**
    * @param {string} token
    * @returns
