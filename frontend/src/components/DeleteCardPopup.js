@@ -1,4 +1,4 @@
-import PopupWithForm from "./PopupWithForm";
+import PopupWithForm from './PopupWithForm';
 
 function DeleteCardPopup({
   isOpen,
@@ -19,11 +19,11 @@ function DeleteCardPopup({
       isFormValid={true}
       onClose={onClose}
       onSubmit={handleSubmit}
-      theme="light"
-      title="Вы уверены?"
-      name="confirmation"
-      submitBtnText="Да"
-      loadingText="Удаление..."
+      theme='light'
+      title='Вы уверены?'
+      name='confirmation'
+      submitBtnText='Да'
+      loadingText='Удаление...'
     />
   );
 }

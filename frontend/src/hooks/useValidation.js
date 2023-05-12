@@ -1,17 +1,17 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback } from 'react';
 
 function useValidation() {
   const [errorMessages, setErrorMessages] = useState({});
   const [isFormValid, setIsFormValid] = useState(false);
   const [isInputsValid, setInputsValidity] = useState({});
 
-  const handleValidityChange = e => {
-    setErrorMessages(messages => ({
+  const handleValidityChange = (e) => {
+    setErrorMessages((messages) => ({
       ...messages,
       [e.target.name]: e.target.validationMessage,
     }));
 
-    setInputsValidity(inputs => ({
+    setInputsValidity((inputs) => ({
       ...inputs,
       [e.target.name]: e.target.validity.valid,
     }));

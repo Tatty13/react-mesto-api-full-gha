@@ -1,7 +1,7 @@
-import { useEffect } from "react";
-import useInput from "../hooks/useInput";
-import useValidation from "../hooks/useValidation";
-import PopupWithForm from "./PopupWithForm";
+import { useEffect } from 'react';
+import useInput from '../hooks/useInput';
+import useValidation from '../hooks/useValidation';
+import PopupWithForm from './PopupWithForm';
 
 function AddPlacePopup({ isOpen, isLoading, onClose, onAddPlace }) {
   const {
@@ -9,8 +9,8 @@ function AddPlacePopup({ isOpen, isLoading, onClose, onAddPlace }) {
     setValues: setCardData,
     handleInputChange,
   } = useInput({
-    name: "",
-    link: "",
+    name: '',
+    link: '',
   });
 
   const {
@@ -23,7 +23,7 @@ function AddPlacePopup({ isOpen, isLoading, onClose, onAddPlace }) {
 
   useEffect(() => {
     if (isOpen) {
-      setCardData({ name: "", link: "" });
+      setCardData({ name: '', link: '' });
       resetValidation();
     }
   }, [isOpen, setCardData, resetValidation]);
@@ -33,7 +33,7 @@ function AddPlacePopup({ isOpen, isLoading, onClose, onAddPlace }) {
     onAddPlace(cardData);
   }
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     handleInputChange(e);
     handleValidityChange(e);
   };
@@ -45,39 +45,39 @@ function AddPlacePopup({ isOpen, isLoading, onClose, onAddPlace }) {
       isFormValid={isFormValid}
       onClose={onClose}
       onSubmit={handleSubmit}
-      title="Новое место"
-      name="add-card"
-      submitBtnText="Создать"
-      theme="light">
+      title='Новое место'
+      name='add-card'
+      submitBtnText='Создать'
+      theme='light'>
       <label>
         <input
           className={`form__input form__input_theme_light ${
-            isInputsValid.name === false && "form__input_invalid"
+            isInputsValid.name === false && 'form__input_invalid'
           }`}
-          type="text"
-          name="name"
-          placeholder="Название"
-          minLength="2"
-          maxLength="30"
+          type='text'
+          name='name'
+          placeholder='Название'
+          minLength='2'
+          maxLength='30'
           value={cardData.name}
           onChange={handleChange}
           required
         />
-        <span className="form__input-error">{errorMessages.name}</span>
+        <span className='form__input-error'>{errorMessages.name}</span>
       </label>
       <label>
         <input
           className={`form__input form__input_theme_light ${
-            isInputsValid.link === false && "form__input_invalid"
+            isInputsValid.link === false && 'form__input_invalid'
           }`}
-          type="url"
-          name="link"
-          placeholder="Ссылка на картинку"
+          type='url'
+          name='link'
+          placeholder='Ссылка на картинку'
           value={cardData.link}
           onChange={handleChange}
           required
         />
-        <span className="form__input-error">{errorMessages.link}</span>
+        <span className='form__input-error'>{errorMessages.link}</span>
       </label>
     </PopupWithForm>
   );

@@ -1,5 +1,5 @@
-import Popup from "./Popup";
-import Form from "./Form";
+import Popup from './Popup';
+import Form from './Form';
 
 function PopupWithForm({
   isOpen,
@@ -19,8 +19,8 @@ function PopupWithForm({
       name={name}
       isOpen={isOpen}
       onClose={onClose}
-      containerClass="popup__container">
-      <h2 className="popup__title">{title}</h2>
+      containerClass='popup__container'>
+      <h2 className='popup__title'>{title}</h2>
       <Form
         name={name}
         onSubmit={onSubmit}

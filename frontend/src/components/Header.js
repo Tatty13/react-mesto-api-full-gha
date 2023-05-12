@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import NavBar from "./NavBar";
-import BurgerBtn from "./BurgerBtn";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import NavBar from './NavBar';
+import BurgerBtn from './BurgerBtn';
 
 function Header({ isLoggedIn, email, onSignout }) {
   const [isNavBarOpen, setNavBarState] = useState(false);
@@ -16,8 +16,12 @@ function Header({ isLoggedIn, email, onSignout }) {
   }
 
   return (
-    <header className="header">
-      <Link className="logo" to="/" aria-label="Логотип" />
+    <header className='header'>
+      <Link
+        className='logo'
+        to='/'
+        aria-label='Логотип'
+      />
       <NavBar
         isLoggedIn={isLoggedIn}
         isOpen={isNavBarOpen}
@@ -26,7 +30,10 @@ function Header({ isLoggedIn, email, onSignout }) {
       />
 
       {isLoggedIn && (
-        <BurgerBtn onClick={toggleBurgerMenu} isOpen={isNavBarOpen} />
+        <BurgerBtn
+          onClick={toggleBurgerMenu}
+          isOpen={isNavBarOpen}
+        />
       )}
     </header>
   );
