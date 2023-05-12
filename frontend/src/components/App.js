@@ -117,9 +117,14 @@ function App() {
   }
 
   function handleSignout() {
-    setIsLoggedIn(false);
-    localStorage.removeItem('loggedIn');
-    navigate('/sign-in', { replace: true });
+    api
+      .logout()
+      .then(() => {
+        setIsLoggedIn(false);
+        localStorage.removeItem('loggedIn');
+        navigate('/sign-in', { replace: true });
+      })
+      .catch(handleErrorCatch);
   }
 
   function handleEditAvatarClick() {
