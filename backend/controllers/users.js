@@ -57,11 +57,10 @@ async function createUser(req, res, next) {
 async function updateUserInfo(req, res, next, userInfo) {
   const { _id } = req.user;
   try {
-    const user = await User.findByIdAndUpdate(
-      _id,
-      userInfo,
-      { new: true, runValidators: true },
-    );
+    const user = await User.findByIdAndUpdate(_id, userInfo, {
+      new: true,
+      runValidators: true,
+    });
 
     if (!user) throw new NotFoundError('Пользователь не найден');
 
@@ -95,6 +94,14 @@ async function login(req, res, next) {
   }
 }
 
+function logout(_, res, next) {
+  try {
+    res.clearCookie('token').send({ message: 'Вы вышли из аккаунта' });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   getUsers,
   getUserById,
@@ -103,4 +110,5 @@ module.exports = {
   updateUser,
   updateAvatar,
   login,
+  logout,
 };
