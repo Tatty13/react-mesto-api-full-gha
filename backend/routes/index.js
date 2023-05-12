@@ -7,10 +7,11 @@ const handleUnknownRoute = require('../controllers/notFound');
 const auth = require('../middlewares/auth');
 const { validateUserCredential } = require('../middlewares/validators/user-validators');
 
-const { login, createUser } = require('../controllers/users');
+const { login, createUser, logout } = require('../controllers/users');
 
 router.post('/signin', validateUserCredential, login);
 router.post('/signup', validateUserCredential, createUser);
+router.post('/signout', auth, logout);
 
 router.use('/users', auth, usersRouter);
 router.use('/cards', auth, cardsRouter);
