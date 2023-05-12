@@ -68,9 +68,10 @@ function App() {
 
   /* -------------------------------------------- */
 
-  const handleErrorCatch = useCallback(({ errorText }) => {
+  const handleErrorCatch = useCallback((err) => {
+    if (typeof err === 'object') err = err.message;
     setIsSuccess(false);
-    setErrorText(errorText);
+    setErrorText(err);
     setInfoTooltipState(true);
   }, []);
 
@@ -248,7 +249,13 @@ function App() {
           setIsLoggedIn(true);
           navigate('/', { replace: true });
         })
-        .catch(handleErrorCatch);
+        .catch((err) => {
+          localStorage.removeItem('loggedIn');
+          setUserEmail('');
+          navigate('/sign-in', { replace: true });
+          setPageLoading(false);
+          handleErrorCatch(err);
+        });
     } else {
       setPageLoading(false);
     }
