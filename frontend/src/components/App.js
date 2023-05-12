@@ -1,21 +1,21 @@
-import { useEffect, useState, useCallback, useMemo } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import CurrentUserContext from "../contexts/CurrentUserContext";
-import ProtectedRoute from "./ProtectedRoute";
-import Header from "./Header";
-import Main from "./Main";
-import Footer from "./Footer";
-import Login from "./Login";
-import Register from "./Register";
-import EditProfilePopup from "./EditProfilePopup";
-import EditAvatarPopup from "./EditAvatarPopup";
-import AddPlacePopup from "./AddPlacePopup";
-import DeleteCardPopup from "./DeleteCardPopup";
-import ImagePopup from "./ImagePopup";
-import InfoTooltip from "./InfoTooltip";
-import Loader from "./Loader";
-import PageNotFound from "./PageNotFound";
-import { api, authApi } from "../utils/api";
+import { useEffect, useState, useCallback, useMemo } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import CurrentUserContext from '../contexts/CurrentUserContext';
+import ProtectedRoute from './ProtectedRoute';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
+import Login from './Login';
+import Register from './Register';
+import EditProfilePopup from './EditProfilePopup';
+import EditAvatarPopup from './EditAvatarPopup';
+import AddPlacePopup from './AddPlacePopup';
+import DeleteCardPopup from './DeleteCardPopup';
+import ImagePopup from './ImagePopup';
+import InfoTooltip from './InfoTooltip';
+import Loader from './Loader';
+import PageNotFound from './PageNotFound';
+import { api, authApi } from '../utils/api';
 
 function App() {
   const [isEditAvatarPopupOpen, setEditAvatarPopupState] = useState(false);
@@ -26,13 +26,13 @@ function App() {
   const [isInfoTooltipOpen, setInfoTooltipState] = useState(false);
 
   const [isSuccess, setIsSuccess] = useState(false);
-  const [errorText, setErrorText] = useState("");
+  const [errorText, setErrorText] = useState('');
 
   const [cards, setCards] = useState([]);
-  const [selectedCard, setSelectedCard] = useState({ name: "", link: "" });
+  const [selectedCard, setSelectedCard] = useState({ name: '', link: '' });
 
-  const [currentUser, setCurrentUser] = useState({ name: "", about: "" });
-  const [userEmail, setUserEmail] = useState("");
+  const [currentUser, setCurrentUser] = useState({ name: '', about: '' });
+  const [userEmail, setUserEmail] = useState('');
 
   const [isLoading, setLoading] = useState(false);
   const [isPageLoading, setPageLoading] = useState(true);
@@ -62,13 +62,13 @@ function App() {
     if (isInfoTooltipOpen) {
       setInfoTooltipState(false);
     } else {
-      popupsState.forEach(popup => popup.state && popup.setter(false));
+      popupsState.forEach((popup) => popup.state && popup.setter(false));
     }
   }, [popupsState, isInfoTooltipOpen]);
 
   /* -------------------------------------------- */
 
-  const handleErrorCatch = useCallback(errorText => {
+  const handleErrorCatch = useCallback(({ errorText }) => {
     setIsSuccess(false);
     setErrorText(errorText);
     setInfoTooltipState(true);
@@ -84,12 +84,12 @@ function App() {
 
     authApi
       .login(loginData)
-      .then(({ token }) => {
-        localStorage.setItem("jwt", token);
+      .then(() => {
+        localStorage.setItem('loggedIn', 'true');
         setIsLoggedIn(true);
         setUserEmail(loginData.email);
         setPageLoading(true);
-        navigate("/", { replace: true });
+        navigate('/', { replace: true });
       })
       .catch(handleErrorCatch)
       .finally(() => {
@@ -107,9 +107,9 @@ function App() {
 
     authApi
       .singup(singupData)
-      .then(_ => {
+      .then((_) => {
         setIsSuccess(true);
-        setErrorText("");
+        setErrorText('');
         setInfoTooltipState(true);
       })
       .catch(handleErrorCatch)
@@ -118,8 +118,8 @@ function App() {
 
   function handleSignout() {
     setIsLoggedIn(false);
-    localStorage.removeItem("jwt");
-    navigate("/sign-in", { replace: true });
+    localStorage.removeItem('loggedIn');
+    navigate('/sign-in', { replace: true });
   }
 
   function handleEditAvatarClick() {
@@ -146,13 +146,15 @@ function App() {
    * @param {object} card - object with full card data
    */
   function handleCardLike(card) {
-    const isLiked = card.likes.some(user => user._id === currentUser._id);
+    const isLiked = card.likes.some((user) => user._id === currentUser._id);
 
     api
       .toogleCardLike(card._id, isLiked)
-      .then(updatedCard => {
-        setCards(cards =>
-          cards.map(item => (item._id === updatedCard._id ? updatedCard : item))
+      .then((updatedCard) => {
+        setCards((cards) =>
+          cards.map((item) =>
+            item._id === updatedCard._id ? updatedCard : item
+          )
         );
       })
       .catch(handleErrorCatch);
@@ -173,8 +175,8 @@ function App() {
     setLoading(true);
     api
       .deleteCard(cardId)
-      .then(_ => {
-        setCards(cards => cards.filter(item => item._id !== cardId));
+      .then((_) => {
+        setCards((cards) => cards.filter((item) => item._id !== cardId));
         closeAllPopups();
       })
       .catch(handleErrorCatch)
@@ -191,7 +193,7 @@ function App() {
 
     api
       .setUserData(userData)
-      .then(updatedUserInfo => {
+      .then((updatedUserInfo) => {
         setCurrentUser(updatedUserInfo);
         closeAllPopups();
       })
@@ -207,7 +209,7 @@ function App() {
     setLoading(true);
     api
       .updateAvatar(avatarData)
-      .then(updatedUserInfo => {
+      .then((updatedUserInfo) => {
         setCurrentUser(updatedUserInfo);
         closeAllPopups();
       })
@@ -224,8 +226,8 @@ function App() {
     setLoading(true);
     api
       .addCard(cardData)
-      .then(newCard => {
-        setCards(cards => [newCard, ...cards]);
+      .then((newCard) => {
+        setCards((cards) => [newCard, ...cards]);
         closeAllPopups();
       })
       .catch(handleErrorCatch)
@@ -233,15 +235,13 @@ function App() {
   }
 
   const handleTokenCheck = useCallback(() => {
-    const token = localStorage.getItem("jwt");
-
-    if (token) {
+    if (localStorage.getItem('loggedIn')) {
       authApi
-        .validateToken(token)
-        .then(({ data }) => {
-          setUserEmail(data.email);
+        .validateToken()
+        .then((user) => {
+          setUserEmail(user.email);
           setIsLoggedIn(true);
-          navigate("/", { replace: true });
+          navigate('/', { replace: true });
         })
         .catch(handleErrorCatch);
     } else {
@@ -255,7 +255,7 @@ function App() {
       Promise.all([api.getUserData(), api.getInitialCards()])
         .then(([user, cardsData]) => {
           setCurrentUser(user);
-          setCards([...cardsData]);
+          setCards([...cardsData.reverse()]);
         })
         .catch(handleErrorCatch)
         .finally(() => setPageLoading(false));
@@ -268,27 +268,35 @@ function App() {
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <>
-        <div className="page__wrap">
+        <div className='page__wrap'>
           <Header
             isLoggedIn={isLoggedIn}
             email={userEmail}
             onSignout={handleSignout}
           />
-          <main className="content">
+          <main className='content'>
             <Routes>
               <Route
-                path="/sign-up"
+                path='/sign-up'
                 element={
-                  <Register onSignup={handlseSignup} isLoading={isLoading} />
+                  <Register
+                    onSignup={handlseSignup}
+                    isLoading={isLoading}
+                  />
                 }
               />
               <Route
-                path="/sign-in"
-                element={<Login onLogin={handleLogin} isLoading={isLoading} />}
+                path='/sign-in'
+                element={
+                  <Login
+                    onLogin={handleLogin}
+                    isLoading={isLoading}
+                  />
+                }
               />
               <Route
                 exact
-                path="/"
+                path='/'
                 element={
                   <ProtectedRoute
                     component={Main}
@@ -303,7 +311,10 @@ function App() {
                   />
                 }
               />
-              <Route path="*" element={<PageNotFound />} />
+              <Route
+                path='*'
+                element={<PageNotFound />}
+              />
             </Routes>
           </main>
           <Footer />
