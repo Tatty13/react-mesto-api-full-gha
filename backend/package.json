@@ -7,11 +7,11 @@
     "email": "tat.mi.iva@gmail.com",
     "url": "https://github.com/Tatty13"
   },
-  "homepage": "https://github.com/Tatty13/react-mesto-api-full#readme",
+  "homepage": "https://github.com/Tatty13/react-mesto-api-full-gha#readme",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tatty13/react-mesto-api-full.git"
+    "url": "git+https://github.com/Tatty13/react-mesto-api-full-gha.git"
   },
   "license": "ISC",
   "main": "app.js",
@@ -41,6 +41,6 @@
     "winston": "^3.8.2"
   },
   "bugs": {
-    "url": "https://github.com/Tatty13/react-mesto-api-full/issues"
+    "url": "https://github.com/Tatty13/react-mesto-api-full-gha/issues"
   }
 }

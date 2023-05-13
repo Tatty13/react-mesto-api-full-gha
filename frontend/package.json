@@ -10,10 +10,10 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tatty13/react-mesto-api-full.git"
+    "url": "https://github.com/Tatty13/react-mesto-api-full-gha.git"
   },
   "bugs": {
-    "url": "https://github.com/Tatty13/react-mesto-api-full/issues"
+    "url": "https://github.com/Tatty13/react-mesto-api-full-gha/issues"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
